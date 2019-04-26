@@ -59,6 +59,8 @@ namespace Talent.Services.Profile.Domain.Services
             if (profile != null)
             {
 
+                var languages = profile.Languages.Select(x => ViewModelFromLanguages(x)).ToList();
+
                 var result = new TalentProfileViewModel
                 {
                     Id = profile.Id,
@@ -81,7 +83,9 @@ namespace Talent.Services.Profile.Domain.Services
                     Summary = profile.Summary,
                     Description = profile.Description,
                     LinkedAccounts = profile.LinkedAccounts,
-                    JobSeekingStatus = profile.JobSeekingStatus
+                    JobSeekingStatus = profile.JobSeekingStatus,
+
+                    Languages = languages,
                 };
                 return result;
             }
@@ -97,6 +101,7 @@ namespace Talent.Services.Profile.Domain.Services
                 {
 
                     User user = (await _userRepository.GetByIdAsync(updaterId));
+
                     user.FirstName = model.FirstName;
                     user.LastName = model.LastName;
                     user.Email = model.Email;
@@ -104,6 +109,25 @@ namespace Talent.Services.Profile.Domain.Services
                     user.LinkedAccounts = model.LinkedAccounts;
                     user.Summary = model.Summary;
                     user.Description = model.Description;
+                    user.Address = model.Address;
+                    user.Nationality = model.Nationality;
+
+                    var newLanguages = new List<UserLanguage>();
+                    foreach (var item in model.Languages)
+                    {
+                        var language = user.Languages.SingleOrDefault(x => x.Id == item.Id);
+                        if (language == null)
+                        {
+                            language = new UserLanguage
+                            {
+                                Id = ObjectId.GenerateNewId().ToString(),
+                                IsDeleted = false
+                            };
+                        }
+                        UpdateLanguageFromView(item, language);
+                        newLanguages.Add(language);
+                    }
+                    user.Languages = newLanguages;
 
 
                     await _userRepository.Update(user);
@@ -376,6 +400,13 @@ namespace Talent.Services.Profile.Domain.Services
             original.Skill = model.Name;
         }
 
+
+        protected void UpdateLanguageFromView(AddLanguageViewModel model, UserLanguage original)
+        {
+            original.LanguageLevel = model.Level;
+            original.Language = model.Name;
+        }
+
         #endregion
 
         #region Build Views from Model
@@ -387,6 +418,17 @@ namespace Talent.Services.Profile.Domain.Services
                 Id = skill.Id,
                 Level = skill.ExperienceLevel,
                 Name = skill.Skill
+            };
+        }
+
+        protected AddLanguageViewModel ViewModelFromLanguages(UserLanguage language)
+        {
+            return new AddLanguageViewModel
+            {
+                Id = language.Id,
+                CurrentUserId = language.UserId,
+                Level = language.LanguageLevel,
+                Name = language.Language
             };
         }
 

@@ -66,6 +66,7 @@ export default class AccountProfile extends React.Component {
         this.loadData();
     }
 
+
     loadData() {
         var cookies = Cookies.get('talentAuthToken');
         $.ajax({
@@ -115,6 +116,7 @@ export default class AccountProfile extends React.Component {
                 console.log(res)
                 if (res.success == true) {
                     TalentUtil.notification.show("Profile updated sucessfully", "success", null, null)
+                    this.loadData();
                 } else {
                     TalentUtil.notification.show("Profile did not update successfully", "error", null, null)
                 }
@@ -177,32 +179,32 @@ export default class AccountProfile extends React.Component {
                                         <FormItemWrapper
                                             title='Address'
                                             tooltip='Enter your current address'>
-                                            {/*
+                                            
                                             <Address
                                                 addressData={this.state.profileData.address}
                                                 updateProfileData={this.updateWithoutSave}
                                                 saveProfileData={this.updateAndSaveData}
-                                            />*/}
+                                            />
                                         </FormItemWrapper>
                                         <FormItemWrapper
                                             title='Nationality'
                                             tooltip='Select your nationality'
                                         >
-                                            {/*
+
                                             <Nationality
                                                 nationalityData={this.state.profileData.nationality}
                                                 saveProfileData={this.updateAndSaveData}
-                                            />*/}
+                                            />
                                         </FormItemWrapper>
                                         <FormItemWrapper
                                             title='Languages'
                                             tooltip='Select languages that you speak'
                                         >
-                                            {/*
+
                                             <Language
                                                 languageData={this.state.profileData.languages}
                                                 updateProfileData={this.updateAndSaveData}
-                                            />*/}
+                                            />
                                         </FormItemWrapper>
                                         <FormItemWrapper
                                             title='Skills'
