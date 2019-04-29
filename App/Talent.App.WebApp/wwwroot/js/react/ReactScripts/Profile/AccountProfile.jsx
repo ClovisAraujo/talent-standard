@@ -210,21 +210,20 @@ export default class AccountProfile extends React.Component {
                                             title='Skills'
                                             tooltip='List your skills'
                                         >
-                                            {/*
+
                                             <Skill
                                                 skillData={this.state.profileData.skills}
                                                 updateProfileData={this.updateAndSaveData}
-                                            />*/}
+                                            />
                                         </FormItemWrapper>
                                         <FormItemWrapper
                                             title='Work experience'
                                             tooltip='Add your work experience'
                                         >
-                                            {/*
                                             <Experience
                                                 experienceData={this.state.profileData.experience}
                                                 updateProfileData={this.updateAndSaveData}
-                                            />*/}
+                                            />
                                         </FormItemWrapper>
                                         <FormItemWrapper
                                             title='Education'

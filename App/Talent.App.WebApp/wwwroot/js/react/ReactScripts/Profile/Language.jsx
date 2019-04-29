@@ -28,7 +28,7 @@ export default class Language extends React.Component {
         this.updateLanguage = this.updateLanguage.bind(this);
         this.addLanguage = this.addLanguage.bind(this);
         this.handleChangeLevel = this.handleChangeLevel.bind(this);
-    }
+    };
 
 
     displayAdd() {
@@ -85,6 +85,7 @@ export default class Language extends React.Component {
 
     updateLanguage(id) {
         let data = this.state.newLanguages
+        console.log('test ' + data)
         const updateId = data.findIndex(x => x.id == id)
         data[updateId].name = this.state.language
         data[updateId].level = this.state.level

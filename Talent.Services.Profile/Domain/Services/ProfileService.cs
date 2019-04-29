@@ -60,6 +60,8 @@ namespace Talent.Services.Profile.Domain.Services
             {
 
                 var languages = profile.Languages.Select(x => ViewModelFromLanguages(x)).ToList();
+                var skills = profile.Skills.Select(x => ViewModelFromSkill(x)).ToList();
+                var experience = profile.Experience.Select(x => ViewModelFromExperience(x)).ToList();
 
                 var result = new TalentProfileViewModel
                 {
@@ -86,6 +88,8 @@ namespace Talent.Services.Profile.Domain.Services
                     JobSeekingStatus = profile.JobSeekingStatus,
 
                     Languages = languages,
+                    Skills = skills,
+                    Experience = experience
                 };
                 return result;
             }
@@ -127,7 +131,41 @@ namespace Talent.Services.Profile.Domain.Services
                         UpdateLanguageFromView(item, language);
                         newLanguages.Add(language);
                     }
+
                     user.Languages = newLanguages;
+
+                    var newSkills = new List<UserSkill>();
+                    foreach (var item in model.Skills)
+                    {
+                        var skill = user.Skills.SingleOrDefault(x => x.Id == item.Id);
+                        if (skill == null)
+                        {
+                            skill = new UserSkill
+                            {
+                                Id = ObjectId.GenerateNewId().ToString(),
+                                IsDeleted = false
+                            };
+                        }
+                        UpdateSkillFromView(item, skill);
+                        newSkills.Add(skill);
+                    }
+                    user.Skills = newSkills;
+
+                    var newExperience = new List<UserExperience>();
+                    foreach (var item in model.Experience)
+                    {
+                        var exp = user.Experience.SingleOrDefault(x => x.Id == item.Id);
+                        if (exp == null)
+                        {
+                            exp = new UserExperience
+                            {
+                                Id = ObjectId.GenerateNewId().ToString(),
+                            };
+                        }
+                        UpdateExperienceFromView(item, exp);
+                        newExperience.Add(exp);
+                    }
+                    user.Experience = newExperience;
 
 
                     await _userRepository.Update(user);
@@ -407,6 +445,15 @@ namespace Talent.Services.Profile.Domain.Services
             original.Language = model.Name;
         }
 
+        protected void UpdateExperienceFromView(ExperienceViewModel model, UserExperience original)
+        {
+            original.Company = model.Company;
+            original.Position = model.Position;
+            original.Responsibilities = model.Responsibilities;
+            original.Start = model.Start;
+            original.End = model.End;
+        }
+
         #endregion
 
         #region Build Views from Model
@@ -429,6 +476,19 @@ namespace Talent.Services.Profile.Domain.Services
                 CurrentUserId = language.UserId,
                 Level = language.LanguageLevel,
                 Name = language.Language
+            };
+        }
+
+        protected ExperienceViewModel ViewModelFromExperience(UserExperience experience)
+        {
+            return new ExperienceViewModel
+            {
+                Id = experience.Id,
+                Company = experience.Company,
+                Position = experience.Position,
+                Responsibilities = experience.Responsibilities,
+                Start = experience.Start,
+                End = experience.End
             };
         }
 
