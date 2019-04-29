@@ -225,48 +225,46 @@ export default class AccountProfile extends React.Component {
                                                 updateProfileData={this.updateAndSaveData}
                                             />
                                         </FormItemWrapper>
+                                        {/*
                                         <FormItemWrapper
                                             title='Education'
                                             tooltip='Add your educational background'
                                         >
-                                            {/*
                                             <Education
                                                 educationData={this.state.profileData.education}
                                                 updateProfileData={this.updateAndSaveData}
-                                            />*/}
+                                            />
                                         </FormItemWrapper>
                                         <FormItemWrapper
                                             title='Certification'
                                             tooltip='List your certificates, honors and awards'
                                         >
-                                            {/*
                                             <Certificate
                                                 certificateData={this.state.profileData.certifications}
                                                 updateProfileData={this.updateAndSaveData}
-                                            />*/}
+                                            />
                                         </FormItemWrapper>
+                                        */}
                                         <FormItemWrapper
                                             title='Visa Status'
                                             tooltip='What is your current Visa/Citizenship status?'
                                         >
-                                            {/*
                                             <VisaStatus
                                                 visaStatus={this.state.profileData.visaStatus}
                                                 visaExpiryDate={this.state.profileData.visaExpiryDate}
                                                 updateProfileData={this.updateWithoutSave}
                                                 saveProfileData={this.updateAndSaveData}
-                                            />*/}
+                                            />
                                         </FormItemWrapper>
                                         <FormItemWrapper
                                             title='Status'
                                             tooltip='What is your current status in jobseeking?'
                                         >
-                                            {/*
                                             <TalentStatus
                                                 status={this.state.profileData.jobSeekingStatus}
                                                 updateProfileData={this.updateWithoutSave}
                                                 saveProfileData={this.updateAndSaveData}
-                                            />*/}
+                                            />
                                         </FormItemWrapper>
                                         <FormItemWrapper
                                             title='Profile Photo'
@@ -280,32 +278,30 @@ export default class AccountProfile extends React.Component {
                                                 savePhotoUrl='http://localhost:60290/profile/profile/updateProfilePhoto'
                                             />*/}
                                         </FormItemWrapper>
+                                        {/*
                                         <FormItemWrapper
                                             title='Profile Video'
                                             tooltip='Upload a brief self-introduction video'
                                             hideSegment={true}
                                         >
-                                            {/*
                                             <VideoUpload
                                                 videoName={this.state.profileData.videoName}
                                                 updateProfileData={this.updateWithoutSave}
                                                 saveVideoUrl={'http://localhost:60290/profile/profile/updateTalentVideo'}
-                                            />*/}
+                                            />
                                         </FormItemWrapper>
                                         <FormItemWrapper
                                             title='CV'
                                             tooltip='Upload your CV. Accepted files are pdf, doc & docx)'
                                             hideSegment={true}
                                         >
-                                            {/*
                                             <CVUpload
                                                 cvName={this.state.profileData.cvName}
                                                 cvUrl={this.state.profileData.cvUrl}
                                                 updateProfileData={this.updateWithoutSave}
                                                 saveCVUrl={'http://localhost:60290/profile/profile/updateTalentCV'}
-                                            />*/}
+                                            />
                                         </FormItemWrapper>
-                                        {/*
                                         <SelfIntroduction
                                             summary={this.state.profileData.summary}
                                             description={this.state.profileData.description}

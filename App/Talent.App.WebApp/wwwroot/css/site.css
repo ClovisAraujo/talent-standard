@@ -9,3 +9,7 @@
 .tdFloatRight {
     float: right;
 }
+
+.buttonStyleDiv {
+    align-self: flex-end;
+}

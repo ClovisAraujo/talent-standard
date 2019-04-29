@@ -55,9 +55,14 @@ namespace Talent.Services.Profile.Domain.Services
 
             profile = (await _userRepository.GetByIdAsync(Id));
 
+            var photoUrl = "";
+
 
             if (profile != null)
             {
+
+                photoUrl = string.IsNullOrWhiteSpace(profile.ProfilePhoto) ? ""
+                           : await _fileService.GetFileURL(profile.ProfilePhotoUrl, FileType.ProfilePhoto);
 
                 var languages = profile.Languages.Select(x => ViewModelFromLanguages(x)).ToList();
                 var skills = profile.Skills.Select(x => ViewModelFromSkill(x)).ToList();
@@ -78,8 +83,6 @@ namespace Talent.Services.Profile.Domain.Services
                     Nationality = profile.Nationality,
                     VisaStatus = profile.VisaStatus,
                     VisaExpiryDate = profile.VisaExpiryDate,
-                    ProfilePhoto = profile.ProfilePhoto,
-                    ProfilePhotoUrl = profile.ProfilePhotoUrl,
                     VideoName = profile.VideoName,
                     CvName = profile.CvName,
                     Summary = profile.Summary,
@@ -89,7 +92,10 @@ namespace Talent.Services.Profile.Domain.Services
 
                     Languages = languages,
                     Skills = skills,
-                    Experience = experience
+                    Experience = experience,
+
+                    ProfilePhoto = profile.ProfilePhoto,
+                    ProfilePhotoUrl = profile.ProfilePhotoUrl
                 };
                 return result;
             }
@@ -115,6 +121,9 @@ namespace Talent.Services.Profile.Domain.Services
                     user.Description = model.Description;
                     user.Address = model.Address;
                     user.Nationality = model.Nationality;
+                    user.VisaStatus = model.VisaStatus;
+                    user.VisaExpiryDate = model.VisaExpiryDate;
+                    user.JobSeekingStatus = model.JobSeekingStatus;
 
                     var newLanguages = new List<UserLanguage>();
                     foreach (var item in model.Languages)
