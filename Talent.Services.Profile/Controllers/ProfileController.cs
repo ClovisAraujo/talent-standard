@@ -477,7 +477,7 @@ namespace Talent.Services.Profile.Controllers
         #region TalentMatching
 
         [HttpGet("getTalentList")]
-        [Authorize(AuthenticationSchemes = JwtBearerDefaults.AuthenticationScheme, Roles = "recruiter")]
+        [Authorize(AuthenticationSchemes = JwtBearerDefaults.AuthenticationScheme, Roles = "recruiter, employer")]
         public async Task<IActionResult> GetTalentListAsync()
         {
             try

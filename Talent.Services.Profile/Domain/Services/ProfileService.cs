@@ -433,8 +433,25 @@ namespace Talent.Services.Profile.Domain.Services
 
         public async Task<IEnumerable<TalentSuggestionViewModel>> GetFullTalentList()
         {
-            //Your code here;
-            throw new NotImplementedException();
+            List<User> talents = (await _userRepository.Get(x => true)).ToList();
+            List<TalentSuggestionViewModel> talentsResult = new List<TalentSuggestionViewModel>();
+            foreach (var talent in talents)
+            {
+                var experiences = talent.Experience.OrderByDescending(x => x.End).Select(x => ViewModelFromExperience(x)).ToList();
+                var skills = talent.Skills.Select(x => ViewModelFromSkill(x)).ToList();
+
+                talentsResult.Add(new TalentSuggestionViewModel
+                {
+                    Id = talent.Id,
+                    Name = talent.FirstName + " " + talent.LastName,
+                    PhotoId = talent.ProfilePhotoUrl,
+                    WorkExperience = experiences,
+                    Skills = skills,
+                    VisaStatus = talent.VisaStatus,
+                    LinkedAccounts = talent.LinkedAccounts
+                });
+            }
+            return talentsResult;
         }
 
         public IEnumerable<TalentMatchingEmployerViewModel> GetEmployerList()

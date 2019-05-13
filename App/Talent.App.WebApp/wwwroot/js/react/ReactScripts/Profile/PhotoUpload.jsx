@@ -101,12 +101,12 @@ export default class PhotoUpload extends Component {
 
         let data = new FormData();
         data.append('ProfilePhoto', this.state.selectedFile);
-        data.append('ProfilePhotoUrl', this.state.imageSrc);d);
+        data.append('ProfilePhotoUrl', this.state.imageSrc);
 
         var cookies = Cookies.get('talentAuthToken');
 
         $.ajax({
-            url: 'http://clovisstmd1profile.azurewebsites.net/profile/profile/updateProfilePhoto',
+            url: 'http://clovisstmd2profile.azurewebsites.net/profile/profile/updateProfilePhoto',
             headers: {
                 'Authorization': 'Bearer ' + cookies
             },

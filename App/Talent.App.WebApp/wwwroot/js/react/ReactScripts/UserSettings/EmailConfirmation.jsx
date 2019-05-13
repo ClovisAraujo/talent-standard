@@ -21,7 +21,7 @@ export default class EmailConfirmation extends React.Component {
     componentDidMount() {
         //verifyEmail
         $.ajax({
-            url: 'http://clovisstmd1identity.azurewebsites.net/authentication/authentication/' + this.state.pagetype,
+            url: 'http://clovisstmd2identity.azurewebsites.net/authentication/authentication/' + this.state.pagetype,
             type: 'GET',
             contentType: 'application/json',
             dataType: 'json',

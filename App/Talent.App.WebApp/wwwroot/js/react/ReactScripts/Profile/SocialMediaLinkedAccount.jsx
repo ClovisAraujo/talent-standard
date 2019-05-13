@@ -26,10 +26,9 @@ export default class
         this.saveLinkedAccounts = this.saveLinkedAccounts.bind(this)
         this.renderEdit = this.renderEdit.bind(this)
         this.renderEdit = this.renderEdit.bind(this)
+        this.handleButtonClick = this.handleButtonClick.bind(this)
     }
 
-    componentDidMount() {
-    }
 
     openEdit() {
         const linkedAccounts = Object.assign({}, this.props.linkedAccounts)
@@ -61,6 +60,14 @@ export default class
         this.closeEdit()
     }
 
+    handleButtonClick(name) {
+        if (name === 'linkedIn') {
+            window.open(this.props.linkedAccounts.linkedIn);
+        } else {
+            window.open(this.props.linkedAccounts.github);
+        }
+    }
+
 
     render() {
         return (
@@ -71,16 +78,16 @@ export default class
     renderDisplay() {
         return (
             <div className='row'>
-            <div className='ui sixteen wide column'>
-                <span className='buttonsSpan'>
-                    <button className="ui primary button buttonSize"><i className='linkedin icon' />{'  LinkedIn'}</button>
-                </span>
-                <span className='buttonsSpan'>
-                    <button className="ui secondary button buttonSize"><i className='github icon' />{'  GitHub'}</button>
-                </span>
-                <button type="button" className='ui right floated teal button' onClick={this.openEdit}>Edit</button>
+                <div className='ui sixteen wide column'>
+                    <span className='buttonsSpan'>
+                        <button className="ui primary button buttonSize" onClick={() => this.handleButtonClick('linkedIn')}><i className='linkedin icon' />{'  LinkedIn'}</button>
+                    </span>
+                    <span className='buttonsSpan'>
+                        <button className="ui secondary button buttonSize" onClick={() => this.handleButtonClick('github')}><i className='github icon' />{'  GitHub'}</button>
+                    </span>
+                    <button type="button" className='ui right floated teal button' onClick={this.openEdit}>Edit</button>
                 </div>
-                </div>
+            </div>
         )
     }
 

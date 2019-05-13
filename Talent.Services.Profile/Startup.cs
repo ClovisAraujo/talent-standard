@@ -58,10 +58,10 @@ namespace Talent.Services.Profile
             });
             services.AddMvc()
                 .AddJsonOptions(options =>
-            {
-                options.SerializerSettings.ContractResolver
-                    = new Newtonsoft.Json.Serialization.CamelCasePropertyNamesContractResolver();
-            });
+                {
+                    options.SerializerSettings.ContractResolver
+                        = new Newtonsoft.Json.Serialization.CamelCasePropertyNamesContractResolver();
+                });
             services.AddJwt(Configuration);
             services.AddMongoDB(Configuration);
             services.AddRabbitMq(Configuration);

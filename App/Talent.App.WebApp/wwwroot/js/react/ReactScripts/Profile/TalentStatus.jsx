@@ -62,7 +62,7 @@ export default class TalentStatus extends React.Component {
                                     label='Actively looking for a job'
                                     name='looking'
                                     value='looking'
-                                    checked={this.state.status === 'looking'}
+                                    checked={this.props.status.status === 'looking'}
                                     onChange={() => this.handleChange('looking')}
                                 />
                             </div>
@@ -74,7 +74,7 @@ export default class TalentStatus extends React.Component {
                                     label='Not looking for a job at the moment'
                                     name='not looking'
                                     value='not looking'
-                                    checked={this.state.status === 'not looking'}
+                                    checked={this.props.status.status === 'not looking'}
                                     onChange={() => this.handleChange('not looking')}
                                 />
                             </div>
@@ -86,7 +86,7 @@ export default class TalentStatus extends React.Component {
                                     label='Currently employed but open to offers'
                                     name='open'
                                     value='open'
-                                    checked={this.state.status === 'open'}
+                                    checked={this.props.status.status === 'open'}
                                     onChange={() => this.handleChange('open')}
                                 />
                             </div>
@@ -98,7 +98,7 @@ export default class TalentStatus extends React.Component {
                                     label='Will be available on later date'
                                     name='later'
                                     value='later'
-                                    checked={this.state.status === 'later'}
+                                    checked={this.props.status.status === 'later'}
                                     onChange={() => this.handleChange('later')}
                                 />
                             </div>

@@ -2,11 +2,6 @@
     width: 175px;
 }
 
-.buttonUplSize {
-    width: 150px;
-}
-
-
 .buttonsSpan {
     margin-right: 10px;
 }
@@ -17,4 +12,34 @@
 
 .buttonStyleDiv {
     align-self: flex-end;
+}
+
+.talentDiv {
+    height: 430px;
+    overflow-y: scroll;
+}
+
+.companyDiv {
+    min-height: 600px;
+}
+
+.styleCursor {
+    cursor: pointer;
+}
+
+.stylePadding {
+    padding: 0 !important;
+}
+
+.talentDetails {
+    margin-top: 14px;
+}
+
+.talentDetailsHeaders {
+    margin: 0 !important;
+}
+
+.companyLogoSize {
+    height: 50px;
+    width: 50px;
 }

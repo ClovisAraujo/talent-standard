@@ -38,8 +38,8 @@ export default class ManageClient extends React.Component {
         this.init();
         this.loadData();
     };
-    // loadData url: 'http://clovisstmd1profile.azurewebsites.net/profile/profile/getClientList',
-    //deleteClient  url: 'http://clovisstmd1identity.azurewebsites.net/authentication/authentication/deactivateClientAccount?id=' + clientId,
+    // loadData url: 'http://clovisstmd2profile.azurewebsites.net/profile/profile/getClientList',
+    //deleteClient  url: 'http://clovisstmd2identity.azurewebsites.net/authentication/authentication/deactivateClientAccount?id=' + clientId,
     
 
     render() {

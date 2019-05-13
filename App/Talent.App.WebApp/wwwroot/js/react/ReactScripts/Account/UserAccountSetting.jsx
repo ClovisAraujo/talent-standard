@@ -52,7 +52,7 @@ export default class UserAccountSetting extends React.Component {
         const cookies = Cookies.get('talentAuthToken');
         if (field == "name") {            
             $.ajax({
-                url: 'http://clovisstmd1identity.azurewebsites.net/authentication/authentication/changeUserName?userName=' + this.state.userName,
+                url: 'http://clovisstmd2identity.azurewebsites.net/authentication/authentication/changeUserName?userName=' + this.state.userName,
                 type: 'POST',
                 headers: {
                     'Authorization': 'Bearer ' + cookies,
@@ -74,7 +74,7 @@ export default class UserAccountSetting extends React.Component {
         if (field == "password") {
             let data = this.state.password;
             $.ajax({
-                url: 'http://clovisstmd1identity.azurewebsites.net/authentication/authentication/changePassword',
+                url: 'http://clovisstmd2identity.azurewebsites.net/authentication/authentication/changePassword',
                 type: "POST",
                 data: JSON.stringify(data),
                 headers: {
@@ -104,7 +104,7 @@ export default class UserAccountSetting extends React.Component {
         }
         if (field == "deactivate") {
             $.ajax({
-                url: 'http://clovisstmd1identity.azurewebsites.net/authentication/authentication/deactivateAccount',
+                url: 'http://clovisstmd2identity.azurewebsites.net/authentication/authentication/deactivateAccount',
                 type: "POST",
                 headers: {
                     'Authorization': 'Bearer ' + cookies,
@@ -125,7 +125,7 @@ export default class UserAccountSetting extends React.Component {
     getUserRole() {
         const cookies = Cookies.get('talentAuthToken');
         $.ajax({
-            url: 'http://clovisstmd1identity.azurewebsites.net/authentication/authentication/getAccountSettingInfo',
+            url: 'http://clovisstmd2identity.azurewebsites.net/authentication/authentication/getAccountSettingInfo',
             type: 'GET',
             headers: {
                 'Authorization': 'Bearer ' + cookies,

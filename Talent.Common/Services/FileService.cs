@@ -27,7 +27,7 @@ namespace Talent.Common.Services
 
         public async Task<string> GetFileURL(string id, FileType type)
         {
-            string fileURL = await Task.Run(() => string.Join("/", "http://clovisstmd1profile.azurewebsites.net/images", id));
+            string fileURL = await Task.Run(() => string.Join("/", "http://clovisstmd2profile.azurewebsites.net/images", id));
             return fileURL;
         }
 

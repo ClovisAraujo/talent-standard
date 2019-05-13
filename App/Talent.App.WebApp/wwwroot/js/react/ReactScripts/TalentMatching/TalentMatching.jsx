@@ -85,20 +85,20 @@ export default class TalentMatching extends React.Component {
         
     //loadSelectedJob(data) url: 'http://localhost:51689/listing/listing/getJobForTalentMatching',
 
-    //loadTalentList()  url: 'http://clovisstmd1profile.azurewebsites.net/profile/profile/getTalentList',
+    //loadTalentList()  url: 'http://clovisstmd2profile.azurewebsites.net/profile/profile/getTalentList',
 
-    //loadTalentFilterList() //url: 'http://clovisstmd1profile.azurewebsites.net/profile/profile/getTalentListFilter',
+    //loadTalentFilterList() //url: 'http://clovisstmd2profile.azurewebsites.net/profile/profile/getTalentListFilter',
 
-    //loadEmployerFilterList() //url: 'http://clovisstmd1profile.azurewebsites.net/profile/profile/getEmployerListFilter',
+    //loadEmployerFilterList() //url: 'http://clovisstmd2profile.azurewebsites.net/profile/profile/getEmployerListFilter',
 
 
-    // loadEmployerList() // url: 'http://clovisstmd1profile.azurewebsites.net/profile/profile/getEmployerList',
-    //loadSuggestionList   url: 'http://clovisstmd1profile.azurewebsites.net/profile/profile/getSuggestionList',
+    // loadEmployerList() // url: 'http://clovisstmd2profile.azurewebsites.net/profile/profile/getEmployerList',
+    //loadSuggestionList   url: 'http://clovisstmd2profile.azurewebsites.net/profile/profile/getSuggestionList',
 
-   // saveCompanyTalents()   url: 'http://clovisstmd1profile.azurewebsites.net/profile/profile/addTalentSuggestions',
+   // saveCompanyTalents()   url: 'http://clovisstmd2profile.azurewebsites.net/profile/profile/addTalentSuggestions',
      
 
-    //saveJobTalents()    url: 'http://clovisstmd1profile.azurewebsites.net/profile/profile/addTalentSuggestions',
+    //saveJobTalents()    url: 'http://clovisstmd2profile.azurewebsites.net/profile/profile/addTalentSuggestions',
        
 
     
